@@ -1,0 +1,294 @@
+/* =============================================
+   DRAMA PLUS — Main Stylesheet
+   ============================================= */
+
+:root {
+  --bg:        #0d0d0d;
+  --surface:   #161616;
+  --card:      #1e1e1e;
+  --accent:    #e91e63;
+  --accent2:   #ff6b9d;
+  --text:      #f0f0f0;
+  --muted:     #888;
+  --radius:    10px;
+  --font:      'Tajawal', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  direction: rtl;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: linear-gradient(135deg, #1a0a10 0%, #0d0d0d 60%);
+  border-bottom: 2px solid var(--accent);
+  padding: 18px 24px;
+  text-align: center;
+}
+
+.header-inner .logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.header-inner .logo span { color: #fff; }
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── MAIN ── */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+/* ── GRID ── */
+.series-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* ── CARD ── */
+.series-item {
+  width: 160px;
+  flex: 0 0 160px;
+  font-family: var(--font);
+}
+
+.series-item a {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+/* Thumbnail */
+.thumb-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  aspect-ratio: 16/9;
+}
+
+.thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(233, 30, 99, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumb-overlay span {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.series-item:hover .thumb-wrap img  { transform: scale(1.06); }
+.series-item:hover .thumb-overlay   { opacity: 1; }
+
+/* Title */
+.series-title {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ddd;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.series-item:hover .series-title { color: var(--accent2); }
+
+/* ── FOOTER ── */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.82rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* ── DRAMA PAGE ── */
+.drama-header {
+  background: linear-gradient(135deg, #1a0a10 0%, #0d0d0d 70%);
+  border-bottom: 2px solid var(--accent);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drama-header .back-btn {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.drama-header h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  flex: 1;
+}
+
+.drama-page-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+/* Video container */
+.video-section {
+  position: relative;
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.video-cover-img {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: opacity 0.3s;
+}
+
+.play-btn-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.play-btn-overlay svg {
+  width: 72px;
+  height: 72px;
+  fill: rgba(255,255,255,0.85);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+  transition: transform 0.2s;
+}
+
+.video-section:hover .play-btn-overlay svg { transform: scale(1.1); }
+
+.player-wrapper {
+  display: none;
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.player-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* Subtitle box */
+.subtitle-box {
+  background: rgba(0,0,0,0.75);
+  border-radius: 6px;
+  color: #fff;
+  font-family: Tahoma, var(--font);
+  font-size: 16px;
+  padding: 8px 14px;
+  text-align: center;
+  margin: 10px auto 0;
+  max-width: 95%;
+  min-height: 42px;
+  line-height: 1.5;
+  direction: rtl;
+}
+
+/* Episode buttons */
+.episodes-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  border-right: 4px solid var(--accent);
+  padding-right: 10px;
+}
+
+.episodes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ep-btn {
+  background: var(--card);
+  color: var(--text);
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ep-btn:hover  { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ep-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Loading spinner */
+.loading-msg {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .series-item { width: calc(50% - 10px); flex: 0 0 calc(50% - 10px); }
+  .series-title { font-size: 0.75rem; }
+}
+
+@media (max-width: 340px) {
+  .series-item { width: 100%; flex: 0 0 100%; }
+}

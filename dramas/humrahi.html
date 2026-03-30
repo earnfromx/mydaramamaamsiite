@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مسلسل باكستاني رفيق الطريق - Humrahi مترجم عربي</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="drama-header">
+    <a href="../index.html" class="back-btn" title="الرئيسية">&#8592;</a>
+    <h1>مسلسل باكستاني رفيق الطريق - Humrahi مترجم عربي</h1>
+  </header>
+
+  <main class="drama-page-main">
+
+    <!-- ── VIDEO SECTION ── -->
+    <div class="video-section">
+
+      <!-- Cover image (shown before play) -->
+      <div class="video-cover-wrap">
+        <img
+          id="video-cover"
+          class="video-cover-img"
+          src="../assets/img/humrahi.svg"
+          alt="مسلسل رفيق الطريق"
+        />
+        <!-- Play button overlay -->
+        <div class="play-btn-overlay">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="40" fill="rgba(0,0,0,0.45)"/>
+            <polygon points="30,20 62,40 30,60" fill="white"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- YouTube player (hidden until episode clicked) -->
+      <div id="player-wrapper" class="player-wrapper" style="display:none;">
+        <div id="yt-player"></div>
+      </div>
+
+      <!-- Subtitle bar -->
+      <div id="subtitle-box" class="subtitle-box">📝 الترجمة ستظهر هنا...</div>
+    </div>
+
+    <!-- ── EPISODES ── -->
+    <section class="episodes-section">
+      <h3>الحلقات</h3>
+      <div id="ep-loading" class="loading-msg">⏳ جاري تحميل الحلقات...</div>
+      <div id="episodes-grid" class="episodes-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 دراما بلس — جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="../assets/js/player.js"></script>
+  <script>
+    // ============================================================
+    //  CONFIGURE THIS DRAMA PAGE:
+    //  txtFile  → path to this drama's .txt data file
+    //  coverImg → thumbnail (already set in <img> above)
+    // ============================================================
+    initDramaPage({
+      txtFile: '../data/humrahi.txt',
+    });
+  </script>
+</body>
+</html>
